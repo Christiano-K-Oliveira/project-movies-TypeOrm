@@ -13,13 +13,10 @@ const movieSchema = z.object({
 
 const movieResultSchema = idKey.merge(movieSchema)
 
-const movieUpdateSchema = z.object({
-    name: z.string().max(50).optional(),
-    description: z.string().optional(),
-    duration: z.number().optional(),
-    price: z.number().optional()
-})
+const movieUpdateSchema = movieSchema.partial()
 
 const allMoviesSchema = z.array(movieResultSchema)
 
-export { movieSchema, movieUpdateSchema, allMoviesSchema }
+
+
+export { movieSchema, movieUpdateSchema, allMoviesSchema, movieResultSchema }

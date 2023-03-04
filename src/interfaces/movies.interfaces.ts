@@ -1,8 +1,10 @@
+import { DeepPartial } from 'typeorm'
 import { z } from 'zod'
-import { allMoviesSchema, movieSchema, movieUpdateSchema } from '../schemas/movies.schemas'
+import { allMoviesSchema, movieResultSchema, movieSchema, movieUpdateSchema,  } from '../schemas/movies.schemas'
 
 type iMovieRequest = z.infer<typeof movieSchema>
-type iUpdateMovie = z.infer<typeof movieUpdateSchema>
+type iMovieResult = z.infer<typeof movieResultSchema>
+type iUpdateMovie = DeepPartial<iMovieResult>
 type iAllMovies = z.infer <typeof allMoviesSchema>
 
-export { iMovieRequest, iUpdateMovie, iAllMovies }
+export { iMovieRequest, iUpdateMovie, iAllMovies,iMovieResult }

@@ -13,7 +13,7 @@ const createMovieController = async (req: Request, res: Response): Promise<Respo
 }
 
 const listMoviesController = async (req: Request, res: Response): Promise<Response> => {
-    const movies = await listMoviesService()
+    const movies = await listMoviesService(req.query)
 
     return res.status(200).json(movies)
 }
@@ -29,7 +29,6 @@ const updateMovieController = async (req: Request, res: Response): Promise<Respo
 
 const deleteMovieController = async (req: Request, res: Response): Promise<Response> => {
     const idMovie: number = parseInt(req.params.id)
-
     await deleteMovieService(idMovie)
 
     return res.status(204).send()

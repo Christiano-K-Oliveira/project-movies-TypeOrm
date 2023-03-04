@@ -3,18 +3,18 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 @Entity('movies')
 class Movie {
     @PrimaryGeneratedColumn('increment')
-    id: number;
+    id: number
 
     @Column({ length: 50, unique: true })
-    name: string;
+    name: string
 
-    @Column({ nullable: true })
-    description: string;
+    @Column({ nullable: true, type: 'text' })
+    description?: string | undefined | null
 
-    @Column() 
+    @Column({ type: 'integer' }) 
     duration: number
 
-    @Column()
+    @Column({ type: 'integer' })
     price: number
 }
 
