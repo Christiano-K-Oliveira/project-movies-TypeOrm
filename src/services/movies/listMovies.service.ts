@@ -16,7 +16,7 @@ const listMoviesService = async (payload: any): Promise<iAllMovies> => {
         take: perPage,
         skip: perPage * (page - 1),
         order: {
-            id: 'ASC'
+            [sort]: order
         }
     })
     const movies = allMoviesSchema.parse(findMovies)

@@ -17,7 +17,6 @@ const updateMovieService = async (movieData: iUpdateMovie, idMovie: number): Pro
     const updatedMovie = movieResultSchema.parse(movie)
 
     return updatedMovie
-
 }
 
 export default updateMovieService
