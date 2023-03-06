@@ -10,7 +10,7 @@ const listMoviesService = async (payload: any): Promise<iResultGetMovies> => {
     const page: number = payload.page === undefined || parseInt(payload.page) <= 1 ? 1 : parseInt(payload.page)
     const perPage: number = payload.perPage === undefined || parseInt(payload.perPage) <= 0 || parseInt(payload.perPage) > 5 ? 5 : parseInt(payload.perPage)
     const sort: string = payload.sort === undefined || payload.sort.toLowerCase() !== 'price' && payload.sort.toLowerCase() !== 'duration' ? 'id' : payload.sort
-    const order: string = payload.order === undefined || payload.order.toLowerCase() !== 'asc' && payload.order.toLowerCase() !== 'desc' ? 'ASC' : payload.order
+    const order: string = payload.order === undefined || payload.sort === undefined || payload.order.toLowerCase() !== 'asc' && payload.order.toLowerCase() !== 'desc' ? 'ASC' : payload.order
 
     const findMovies: Array<Movie> = await movieRepo.find({
         take: perPage,
